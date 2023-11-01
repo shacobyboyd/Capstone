@@ -10,12 +10,20 @@ describe('API Tests for Restful Booker', () => {
 
   it('Create Booking Test', () => {
     const newBookingData = {
-      first_name: 'John',
-      last_name: 'Doe',
-      check_in: '2023-10-01',
-      checkout: '2023-10-10',
+      firstname: 'sally',
+      lastname: 'Smith',
+      totalprice:3500,
+      depositpaid:true,
+      bookingdates:{
+       checkin: '2023-10-01',
+      checkout: '2023-10-10'
+      },
+      additionalneeds: "hot shower"
 
     };
+
+
+
     cy.request('POST', `${baseUrl}/booking`, newBookingData).then((response) => {
       expect(response.status).to.equal(200); 
     });
