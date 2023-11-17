@@ -31,5 +31,5 @@ jobs:
       - name: Run ZAP Baseline Scan
         run: |
           ./zap-baseline.py -t https://juice-shop.herokuapp.com -J -r zap_report.html
-    env:
+   env:
      ZAP_PORT: 8090
