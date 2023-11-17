@@ -5,8 +5,6 @@ on:
     branches:
       - feature/zap-integration
 
-
-
 jobs:
   zap_scan:
     runs-on: ubuntu-latest
@@ -31,5 +29,5 @@ jobs:
       - name: Run ZAP Baseline Scan
         run: |
           ./zap-baseline.py -t https://juice-shop.herokuapp.com -J -r zap_report.html
-   env:
-     ZAP_PORT: 8090
+        env:
+          ZAP_PORT: 8090
