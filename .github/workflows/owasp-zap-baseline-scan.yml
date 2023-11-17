@@ -3,7 +3,7 @@ name: OWASP ZAP Baseline Scan
 on:
   push:
     branches:
-      - feature/master
+      - feature/zap-integration
 
 jobs:
   zap_scan:
