@@ -3,7 +3,7 @@ name: OWASP ZAP Baseline Scan
 on:
   push:
     branches:
-      - feature/zap-integration
+      - feature/master
 
 jobs:
   zap_scan:
@@ -31,3 +31,4 @@ jobs:
           ./zap-baseline.py -t https://juice-shop.herokuapp.com -J -r zap_report.html
         env:
           ZAP_PORT: 8090
+
