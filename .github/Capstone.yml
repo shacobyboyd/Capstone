@@ -1,4 +1,4 @@
-name: Owasp Integration
+name: Cypress Tests
 
 on:
   push:
@@ -6,16 +6,21 @@ on:
       - main
 
 jobs:
-  zap_scan:
+  cypress-run:
     runs-on: ubuntu-latest
-    name: Scan the application
+
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: ZAP Scan
-        uses: zaproxy/action-baseline@v0.9.0
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          target: 'https://thinking-tester-contact-list.herokuapp.com/'
-          rules_file_name: '.zap/rules.tsv'
-          cmd_options: '-a'
+          node-version: '14'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Cypress Tests
+        run: npx cypress run
+
