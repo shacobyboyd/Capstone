@@ -6,21 +6,27 @@ on:
       - main
 
 jobs:
-  cypress-run:
+  cypress_tests:
     runs-on: ubuntu-latest
-
+    name: Run Cypress Tests
     steps:
-      - name: Checkout Repository
+      - name: Checkout
         uses: actions/checkout@v2
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: 14
 
       - name: Install Dependencies
         run: npm install
 
       - name: Run Cypress Tests
-        run: npx cypress run
+        run: npm run test
+
+      - name: Upload Cypress Screenshots and Videos
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-results
+          path: cypress/screenshots cypress/videos
 
