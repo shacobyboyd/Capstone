@@ -1,4 +1,4 @@
-// Contact Management
+
 const email = 'shacobyboyd2@gmail.com';
 const userPassword = 'Jujumario2!';
 const loginUrl = 'https://thinking-tester-contact-list.herokuapp.com/login';
