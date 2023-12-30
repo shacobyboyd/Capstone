@@ -75,4 +75,19 @@ describe('Update Contact', () => {
     cy.get('#submit').click(); 
   });
 });
-// final
+describe('Add User', () => {
+  it('should add a new user', () => {
+    cy.visit('https://thinking-tester-contact-list.herokuapp.com/addUser');
+    cy.get('#firstName').type('John');
+    cy.get('#lastName').type('Doe');
+    cy.get('#email').type('john.doeddd@gmail.com');
+    cy.get('#password').type('password123');
+    cy.get('button[type="submit"]').click();
+  });
+});
+describe('Logout User', () => {
+  it('should log out the user', () => {
+    cy.visit('https://thinking-tester-contact-list.herokuapp.com/dashboard');
+    cy.get('#logout').click();
+  });
+});
