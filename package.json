@@ -1,16 +1,17 @@
 {
   "name": "playground2",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.3",
+  "description": "API",
   "main": "index.js",
   "scripts": {
     "test": "cypress run",
-    "api:test": "mocha ./path/to/api/tests/*.js"
+    "api:test": "mocha ./path/to/api/tests/*.js",
+    "cypress:run": "cypress run"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "cypress": "^13.3.0",
-    "mocha": "^10.2.0" 
+    "mocha": "^10.2.0"
   }
 }
