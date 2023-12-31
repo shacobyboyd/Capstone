@@ -1,4 +1,5 @@
-name: CI
+
+name: ContactApp Workflow
 
 on:
   push:
@@ -6,20 +7,42 @@ on:
       - main
 
 jobs:
-  build:
+  cypress_ui_tests:
     runs-on: ubuntu-latest
-
+    name: Cypress UI Tests
     steps:
-      - name: Checkout Repository
+      - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '14'
 
       - name: Install Dependencies
         run: npm install
 
-      - name: Run Tests
-        run: npm test
+      - name: Run Cypress UI Tests
+        run: npm run cypress:run
+
+  zap_scan:
+    runs-on: ubuntu-latest
+    name: ZAP Security Scan
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: ZAP Scan
+        uses: zaproxy/action-baseline@v0.9.0
+        with:
+          target: 'https://thinking-tester-contact-list.herokuapp.com/'
+          rules_file_name: '.zap/rules.tsv'
+          cmd_options: '-a'
+
+  api_tests:
+    runs-on: ubuntu-latest
+    name: API Tests
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run API Tests
+        run: npm run api:test
