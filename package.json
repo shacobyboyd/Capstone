@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "cypress run",
-    "api:test": "mocha ./path/to/api/tests/*.js",
+    "api:test": "mocha .cypress/*.cy.js",
     "cypress:run": "cypress run"
   },
   "author": "",
@@ -15,3 +15,4 @@
     "mocha": "^10.2.0"
   }
 }
+
