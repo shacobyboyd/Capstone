@@ -26,19 +26,30 @@ jobs:
           name: cypress-results
           path: cypress/screenshots cypress/videos
 
-  zap_scan:
-    runs-on: ubuntu-latest
-    name: ZAP Security Scan
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+- name: ZAP Scan
+  uses: zaproxy/action-baseline@v0.9.0
+  with:
+    target: 'https://thinking-tester-contact-list.herokuapp.com/'
+    rules_file_name: '.zap/rules.tsv'
+    cmd_options: '-a'
+    work_directory: '/path/with/sufficient/permissions'
 
-      - name: ZAP Scan
-        uses: zaproxy/action-baseline@v0.9.0
-        with:
-          target: 'https://thinking-tester-contact-list.herokuapp.com/'
-          rules_file_name: '.zap/rules.tsv'
-          cmd_options: '-a'
+
+
+
+  # zap_scan:
+  #   runs-on: ubuntu-latest
+  #   name: ZAP Security Scan
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+
+  #     - name: ZAP Scan
+  #       uses: zaproxy/action-baseline@v0.9.0
+  #       with:
+  #         target: 'https://thinking-tester-contact-list.herokuapp.com/'
+  #         rules_file_name: '.zap/rules.tsv'
+  #         cmd_options: '-a'
 
 #   api_tests:
 #     runs-on: ubuntu-latest
