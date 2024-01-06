@@ -34,31 +34,4 @@ jobs:
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a'
 
-  name: API Tests
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  api_tests:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
-
-    - name: Install Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '14'
-
-    - name: Install Dependencies
-      run: npm install
-
-    - name: Check File Existence
-      run: ls -l '/Users/shacobyboyd/Desktop/Playground2/ApI Test.postman_collection.json'
-
-    - name: Run API Tests
-      run: npx newman run '/Users/shacobyboyd/Desktop/Playground2/ApI Test.postman_collection.json'
+  
