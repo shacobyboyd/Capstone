@@ -5,13 +5,18 @@
   "main": "index.js",
   "scripts": {
     "test": "cypress run",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "api:test": "newman run '/Users/shacobyboyd/Desktop/Playground2/ApI Test.postman_collection.json'"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "cypress": "^13.3.0",
-    "mocha": "^10.2.0"
+    "mocha": "^10.2.0",
+    "newman": "^5.2.3"
   }
 }
+
+
+
 
